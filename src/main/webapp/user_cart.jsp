@@ -126,6 +126,7 @@ String error = (String) session.getAttribute("error");
 																class="nav-link"><button type="button"
 																	class="btn btn-outline-primary">+</button></a>
 														</div>
+														<a href="res_controller?mode=DeleteItemInCart&idc=<%= mnu.getId() %>" class="btn btn-danger">Delete</a>
 													</div>
 													<div class="col-1">
 														<span class=""><%=Integer.parseInt(mnu.getMenus().getCount()) * mnu.getMenus().getPrice()%></span>

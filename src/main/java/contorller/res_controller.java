@@ -204,6 +204,20 @@ public class res_controller extends HttpServlet {
 				
 				request.getRequestDispatcher("user_history.jsp").forward(request, response);
 				
+			}else if(mode.equals("DeleteItemInCart")) {
+				String id = request.getParameter("idc");
+				
+				CartDAO cdao = new CartDAO();
+				
+				boolean status = cdao.DeleteItem(id);
+				
+				if (status) {
+					session.setAttribute("success", "ลบสินค้าออกจากตระกร้าสำเร็จ !");
+					request.getRequestDispatcher("res_controller?mode=cart").forward(request, response);
+				} else {
+					session.setAttribute("error", "ไม่สามารถลบสินค้าออกจากตระกร้าสำเร็จ  !");
+					request.getRequestDispatcher("res_controller?mode=cart").forward(request, response);
+				}
 			}
 		} else {
 //			request.getRequestDispatcher("index.jsp").forward(request, response);
